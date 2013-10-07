@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>PCD Roxx!</title>
+
+	<meta name="viewport" content="width=device-width">
+
+	<!-- links to Leaflet stylesheets -->
+	<link rel="stylesheet" href="css/leaflet.css">
+	<!--[if IE]>
+		<link rel="stylesheet" href="css/leaflet.ie.css">
+	<![endif]-->
+
+</head>
+
+<body>
+
+	<!-- styles for html elements -->
+	<style>
+		body {
+			font-family: sans-serif;
+		}
+		#wrapper {
+			width: 960px;
+			margin: 15px;
+		}
+		#map {
+			width: 100%;
+			height: 450px;
+			margin: 15px;
+		}
+	</style>
+
+	<!-- html elements to hold page content, map -->
+	<div id="wrapper">
+		<h1>Proportional Symbol Map for PCD</h1>
+		<div id="map"></div>
+	</div>
+
+	<!-- script links to jQuery and Leaflet -->
+	<script src="js/jquery.js"></script>
+	<script src="js/leaflet.js"></script>
+
+	<!-- main script -->
+	<script>
+		
+		//use jQuery to load script after HTML
+		$(document).ready(function(){
+			
+			//global variables
+			var map,
+				cities,
+				tiles;
+
+			//new Leaflet map
+			map = L.map('map', {
+				center: [38, -96],
+				zoom: 4,
+				minZoom: 4
+			});
+
+			//new Leaflet tileLayer for background slippy tiles
+			tiles = L.tileLayer('http://{s}.acetate.geoiq.com/tiles/acetate/{z}/{x}/{y}.png',
+				{
+					attribution: 'GeoIQ layer'
+				}).addTo(map); //<-don't forget this bit if you want to see the tiles!
+
+			//use jQuery to load the data
+			$.getJSON("data/cityData.json")
+				.done(function(data){
+
+					//new Leaflet geoJson layer creates point features out of data objects
+					L.geoJson(data, {
+						
+						//attach a popup with the feature name to each point feature
+						onEachFeature: function(feature, layer){
+							layer.bindPopup(feature.properties.name)
+						},
+						
+						//change default png markers to dynamic circle markers
+						pointToLayer: function(feature, latlng){
+							
+							//new Leaflet circleMarker layer for each marker
+							return L.circleMarker(latlng, {
+								
+								//calculate each radius separately using an attribute
+								radius: calcPropRadius(feature.properties.yr2005),
+								fillColor: '#f00',
+								color: '#f00'
+							})
+						}
+					}).addTo(map); //<-add the geoJson layer to the map
+				})
+
+			//function to calculate the radius of each proportional symbol
+			function calcPropRadius(attributeValue){
+				var scaleFactor = 10;
+				var area = attributeValue *scaleFactor;
+				var radius = Math.sqrt(area/Math.PI)*2;
+				return radius;
+			}
+		})
+
+	</script>
+
+</body>
+</html>

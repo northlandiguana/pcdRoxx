@@ -1,0 +1,36 @@
+{
+"type": "FeatureCollection",
+                                                                                
+"features": [
+{ "type": "Feature", "properties": { "id": "1", "name": "Atlanta", "latitude": "33.75", "longitude": "-84.39", "yr2005": "85.00", "yr2006": "38.00", "yr2007": "75.00", "yr2008": "30.00", "yr2009": "9.00", "yr2010": "15.00", "yr2011": "38.00" }, "geometry": { "type": "Point", "coordinates": [ -84.39, 33.75 ] } }
+,
+{ "type": "Feature", "properties": { "id": "2", "name": "Chicago", "latitude": "41.85", "longitude": "-87.65", "yr2005": "28.00", "yr2006": "29.00", "yr2007": "38.00", "yr2008": "26.00", "yr2009": "15.00", "yr2010": "12.00", "yr2011": "10.00" }, "geometry": { "type": "Point", "coordinates": [ -87.65, 41.85 ] } }
+,
+{ "type": "Feature", "properties": { "id": "3", "name": "Dallas", "latitude": "32.78", "longitude": "-96.80", "yr2005": "18.00", "yr2006": "59.00", "yr2007": "22.00", "yr2008": "60.00", "yr2009": "82.00", "yr2010": "42.00", "yr2011": "18.00" }, "geometry": { "type": "Point", "coordinates": [ -96.8, 32.78 ] } }
+,
+{ "type": "Feature", "properties": { "id": "4", "name": "Denver", "latitude": "39.74", "longitude": "-104.98", "yr2005": "35.00", "yr2006": "45.00", "yr2007": "31.00", "yr2008": "26.00", "yr2009": "14.00", "yr2010": "9.00", "yr2011": "15.00" }, "geometry": { "type": "Point", "coordinates": [ -104.98, 39.74 ] } }
+,
+{ "type": "Feature", "properties": { "id": "5", "name": "Houston", "latitude": "29.76", "longitude": "-95.36", "yr2005": "12.00", "yr2006": "31.00", "yr2007": "15.00", "yr2008": "22.00", "yr2009": "28.00", "yr2010": "38.00", "yr2011": "31.00" }, "geometry": { "type": "Point", "coordinates": [ -95.36, 29.76 ] } }
+,
+{ "type": "Feature", "properties": { "id": "6", "name": "Kansas City", "latitude": "39.10", "longitude": "-94.58", "yr2005": "25.00", "yr2006": "50.00", "yr2007": "25.00", "yr2008": "25.00", "yr2009": "25.00", "yr2010": "25.00", "yr2011": "100.00" }, "geometry": { "type": "Point", "coordinates": [ -94.58, 39.1 ] } }
+,
+{ "type": "Feature", "properties": { "id": "7", "name": "Los Angeles", "latitude": "34.05", "longitude": "-118.24", "yr2005": "88.00", "yr2006": "46.00", "yr2007": "56.00", "yr2008": "15.00", "yr2009": "12.00", "yr2010": "25.00", "yr2011": "46.00" }, "geometry": { "type": "Point", "coordinates": [ -118.24, 34.05 ] } }
+,
+{ "type": "Feature", "properties": { "id": "8", "name": "Miami", "latitude": "25.77", "longitude": "-80.19", "yr2005": "52.00", "yr2006": "51.00", "yr2007": "46.00", "yr2008": "68.00", "yr2009": "75.00", "yr2010": "85.00", "yr2011": "96.00" }, "geometry": { "type": "Point", "coordinates": [ -80.19, 25.77 ] } }
+,
+{ "type": "Feature", "properties": { "id": "9", "name": "Minneapolis", "latitude": "44.98", "longitude": "-93.26", "yr2005": "7.00", "yr2006": "12.00", "yr2007": "18.00", "yr2008": "11.00", "yr2009": "9.00", "yr2010": "9.00", "yr2011": "4.00" }, "geometry": { "type": "Point", "coordinates": [ -93.26, 44.98 ] } }
+,
+{ "type": "Feature", "properties": { "id": "10", "name": "New York", "latitude": "40.71", "longitude": "-74.01", "yr2005": "23.00", "yr2006": "18.00", "yr2007": "16.00", "yr2008": "24.00", "yr2009": "26.00", "yr2010": "28.00", "yr2011": "30.00" }, "geometry": { "type": "Point", "coordinates": [ -74.01, 40.71 ] } }
+,
+{ "type": "Feature", "properties": { "id": "11", "name": "Philadelphia", "latitude": "39.95", "longitude": "-75.16", "yr2005": "32.00", "yr2006": "28.00", "yr2007": "29.00", "yr2008": "25.00", "yr2009": "22.00", "yr2010": "15.00", "yr2011": "8.00" }, "geometry": { "type": "Point", "coordinates": [ -75.16, 39.95 ] } }
+,
+{ "type": "Feature", "properties": { "id": "12", "name": "Phoenix", "latitude": "33.45", "longitude": "-112.07", "yr2005": "8.00", "yr2006": "15.00", "yr2007": "22.00", "yr2008": "25.00", "yr2009": "29.00", "yr2010": "28.00", "yr2011": "32.00" }, "geometry": { "type": "Point", "coordinates": [ -112.07, 33.45 ] } }
+,
+{ "type": "Feature", "properties": { "id": "13", "name": "San Francisco", "latitude": "37.78", "longitude": "-122.42", "yr2005": "82.00", "yr2006": "74.00", "yr2007": "72.00", "yr2008": "10.00", "yr2009": "85.00", "yr2010": "88.00", "yr2011": "74.00" }, "geometry": { "type": "Point", "coordinates": [ -122.42, 37.78 ] } }
+,
+{ "type": "Feature", "properties": { "id": "14", "name": "Seattle", "latitude": "47.61", "longitude": "-122.33", "yr2005": "9.00", "yr2006": "16.00", "yr2007": "14.00", "yr2008": "23.00", "yr2009": "45.00", "yr2010": "66.00", "yr2011": "85.00" }, "geometry": { "type": "Point", "coordinates": [ -122.33, 47.61 ] } }
+,
+{ "type": "Feature", "properties": { "id": "15", "name": "Washington", "latitude": "38.89", "longitude": "-77.03", "yr2005": "33.00", "yr2006": "45.00", "yr2007": "68.00", "yr2008": "96.00", "yr2009": "102.00", "yr2010": "82.00", "yr2011": "74.00" }, "geometry": { "type": "Point", "coordinates": [ -77.03, 38.89 ] } }
+
+]
+}
