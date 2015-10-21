@@ -6,7 +6,6 @@
 
 	<meta name="viewport" content="width=device-width">
 
-	<!-- links to Leaflet stylesheets -->
 	<link rel="stylesheet" href="css/leaflet.css">
 	<!--[if IE]>
 		<link rel="stylesheet" href="css/leaflet.ie.css">
@@ -16,7 +15,6 @@
 
 <body>
 
-	<!-- styles for html elements -->
 	<style>
 		body {
 			font-family: sans-serif;
@@ -30,76 +28,56 @@
 			height: 450px;
 			margin: 15px;
 		}
+
 	</style>
 
-	<!-- html elements to hold page content, map -->
 	<div id="wrapper">
-		<h1>Proportional Symbol Map for PCD</h1>
+		<h1>Proportional Symbol Map with Leaflet</h1>
 		<div id="map"></div>
 	</div>
 
-	<!-- script links to jQuery and Leaflet -->
 	<script src="js/jquery.js"></script>
 	<script src="js/leaflet.js"></script>
 
-	<!-- main script -->
-	<script>
-		
-		//use jQuery to load script after HTML
+	<script type="text/javascript">
 		$(document).ready(function(){
-			
-			//global variables
 			var map,
-				cities,
-				tiles;
+				tiles,
+				cities;
 
-			//new Leaflet map
 			map = L.map('map', {
-				center: [38, -96],
-				zoom: 4,
-				minZoom: 4
+				center: [43.077822, -89.377964],
+				zoom: 4
 			});
 
-			//new Leaflet tileLayer for background slippy tiles
-			tiles = L.tileLayer('http://{s}.acetate.geoiq.com/tiles/acetate/{z}/{x}/{y}.png',
-				{
-					attribution: 'GeoIQ layer'
-				}).addTo(map); //<-don't forget this bit if you want to see the tiles!
+			tiles = L.tileLayer(
+				'http://{s}.acetate.geoiq.com/tiles/acetate/{z}/{x}/{y}.png', {
+					attribution: 'Acetate tileset from GeoIQ'
+				}).addTo(map);
 
-			//use jQuery to load the data
-			$.getJSON("data/cityData.json")
+			$.getJSON('data/cityData.json')
 				.done(function(data){
-
-					//new Leaflet geoJson layer creates point features out of data objects
 					L.geoJson(data, {
-						
-						//attach a popup with the feature name to each point feature
 						onEachFeature: function(feature, layer){
-							layer.bindPopup(feature.properties.name)
+							layer.bindPopup(feature.properties.name+": <br>"+
+								Math.round(feature.properties.yr2005))
 						},
-						
-						//change default png markers to dynamic circle markers
 						pointToLayer: function(feature, latlng){
-							
-							//new Leaflet circleMarker layer for each marker
 							return L.circleMarker(latlng, {
-								
-								//calculate each radius separately using an attribute
 								radius: calcPropRadius(feature.properties.yr2005),
 								fillColor: '#f00',
 								color: '#f00'
 							})
 						}
-					}).addTo(map); //<-add the geoJson layer to the map
+					}).addTo(map);
 				})
 
-			//function to calculate the radius of each proportional symbol
 			function calcPropRadius(attributeValue){
-				var scaleFactor = 10;
-				var area = attributeValue *scaleFactor;
-				var radius = Math.sqrt(area/Math.PI)*2;
-				return radius;
+				var scaleFactor = 20;
+				var area = attributeValue*scaleFactor;
+				return Math.sqrt(area/Math.PI);
 			}
+
 		})
 
 	</script>
